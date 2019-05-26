@@ -13,7 +13,7 @@ Medium, Low).
 
 ### Procdure
 1) Download the Project source code.
-2) Import the project to IDE(Eclipse recommended) 
+2) Import the project to IDE(Eclipse recommended) as an existing maven project.
 3) Goto taskmanager->src/main/resource -- Execute ddl and dml sql(Make sure mysql server didn't have database named testtaskmanager).
 4) Goto taskmanager->src/main/resource->application.properties and change spring.datasource.username={mysql server username} spring.datasource.password={mysql server password}
 5) Goto taskmanager->src/main/java->com.demo.taskmanager->TaskManager.java
@@ -209,6 +209,6 @@ Request Body Type->JSON
 Request Body->{
 				"label":{label name}, // to fetch tasks of pirticular label   
 				"priority":[{priority name}], // to fetch tasks from priorities   
-				"dayRange":{integer value}, // to fetch tasks in day duration e.g: for next 2 days value should be 2 , for previous 4 days value should be -4 and for current day value should be 0   
+				"dayRange":{"string value"}, // to fetch tasks in day duration e.g: for next 2 days value should be 2 , for previous 4 days value should be -4 and for current day value should be 0   
 			}   
 Response->true or false   
