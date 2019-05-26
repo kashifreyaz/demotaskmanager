@@ -83,12 +83,9 @@ public class TaskServiceImpl implements ITaskService {
 		if(filterCriteria.containsKey("dayRange")) {
 			Map<String, String> datefilter = DateUtil.getFromAndToDateFromDaySpan(Integer.parseInt((String) filterCriteria.get("dayRange")));
 			if(datefilter.size()==1) {
-				System.out.println(datefilter.get("date"));
 				query.append(" and Date(tasks.taskDate) = '"+datefilter.get("date")+"'");
 			}else {
-				System.out.println(datefilter.get("fromDate"));
-				System.out.println(datefilter.get("toDate"));
-				query.append(" and tasks.taskDate between '"+datefilter.get("fromDate")+"' and '"+datefilter.get("toDate")+"'");
+				query.append(" and Date(tasks.taskDate) between '"+datefilter.get("fromDate")+"' and '"+datefilter.get("toDate")+"'");
 			}
 		}
 		if(filterCriteria.containsKey("priority")) {
